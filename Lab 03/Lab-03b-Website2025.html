@@ -1,4 +1,3 @@
-Result (from Claude AI):
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,8 +44,10 @@ Result (from Claude AI):
      font-weight: bold;
    }
 
-   .dropdown-btn:hover {
+   .dropdown-btn:hover,
+   .dropdown-btn:focus {
      background-color: #f0f0f0;
+     outline: none;
    }
 
    /* Dropdown content (hidden by default) */
@@ -54,7 +55,7 @@ Result (from Claude AI):
      display: none;
      position: absolute;
      right: 0;
-     background-color: white;
+     background-color: #000000;
      min-width: 500px;
      max-width: 600px;
      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
@@ -68,7 +69,7 @@ Result (from Claude AI):
    /* Lab items in the dropdown */
    .dropdown-item {
      padding: 15px;
-     border-bottom: 1px solid #e0e0e0;
+     border-bottom: 1px solid #333;
    }
 
    .dropdown-item:last-child {
@@ -76,7 +77,7 @@ Result (from Claude AI):
    }
 
    .dropdown-item:hover {
-     background-color: #f8f8f8;
+     background-color: #1a1a1a;
    }
 
    .lab-title {
@@ -105,12 +106,12 @@ Result (from Claude AI):
      text-decoration: underline;
    }
 
-   /* Show the dropdown menu when hovering */
-   .dropdown:hover .dropdown-content {
+   /* Show the dropdown menu when active */
+   .dropdown.active .dropdown-content {
      display: block;
    }
 
-   .dropdown:hover .dropdown-btn {
+   .dropdown.active .dropdown-btn {
      background-color: #f0f0f0;
    }
 
@@ -146,8 +147,8 @@ Result (from Claude AI):
  <!-- Navigation bar with dropdown -->
  <div class="navbar">
    <h1>Ahnaf Karim - Labs and Classwork</h1>
-   <div class="dropdown">
-     <button class="dropdown-btn">Labs ▼</button>
+   <div class="dropdown" id="labDropdown">
+     <button class="dropdown-btn" onclick="toggleDropdown()">Labs ▼</button>
      <div class="dropdown-content">
        
        <!-- Lab 1 -->
@@ -157,10 +158,10 @@ Result (from Claude AI):
            Lab 1 was an introductory lab in which we installed and began running Microsoft Azure, Github, and our Terminal.
          </div>
          <div class="lab-links">
-           <a href="/../Lab 01/AzureStatusPage.png">Azure Status Page</a>
-           <a href="/../Lab 01/CheckPHPPage.png">Check PHP Page</a>
-           <a href="/../Lab 01/Github.png">Github Page</a>
-           <a href="/../Lab 01/HelloWorld.png">Hello World Page</a>
+           <a href="Lab 01/AzureStatusPage.png" target="_blank">Azure Status Page</a>
+           <a href="Lab 01/CheckPHPPage.png" target="_blank">Check PHP Page</a>
+           <a href="Lab 01/Github.png" target="_blank">Github Page</a>
+           <a href="Lab 01/HelloWorld.png" target="_blank">Hello World Page</a>
          </div>
        </div>
 
@@ -171,7 +172,7 @@ Result (from Claude AI):
            For Lab 2 we were tasked with looking at sample resume and then making our own. The purpose of this was for us to familiarize ourselves with the process of building a website.
          </div>
          <div class="lab-links">
-           <a href="/../Lab 02/Lab02-ActualResume2025.html">My Resume Site for Lab 02</a>
+           <a href="Lab 02/Lab02-ActualResume2025.html" target="_blank">My Resume Site for Lab 02</a>
          </div>
        </div>
 
@@ -209,6 +210,23 @@ Result (from Claude AI):
      Use the "Labs" dropdown menu at the top of the page to view details about each lab and access related materials.
    </p>
  </div>
+
+ <script>
+   function toggleDropdown() {
+     var dropdown = document.getElementById("labDropdown");
+     dropdown.classList.toggle("active");
+   }
+
+   // Close dropdown when clicking outside
+   window.onclick = function(event) {
+     if (!event.target.matches('.dropdown-btn')) {
+       var dropdown = document.getElementById("labDropdown");
+       if (dropdown.classList.contains('active')) {
+         dropdown.classList.remove('active');
+       }
+     }
+   }
+ </script>
 </body>
 </html>
 
