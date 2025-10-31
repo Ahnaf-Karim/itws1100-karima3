@@ -1,0 +1,88 @@
+import hw4_util
+
+def calculate_daily_avg(state_data):
+    total = sum(state_data[2:9])
+    return total / 100000.0
+
+def calculate_pct_avg(state_data):
+    positive_sum = sum(state_data[2:9])
+    negative_sum = sum(state_data[9:16])
+    total = positive_sum + negative_sum
+    if total == 0:
+        return 0.0
+    return (positive_sum / total) * 100
+
+def find_highest_state(week_data):
+    max_avg = -1
+    max_state = ""
+    
+    for state in week_data:
+        avg = calculate_daily_avg(state)
+        if avg > max_avg:
+            max_avg = avg
+            max_state = state[0]
+    
+    return max_state, max_avg
+
+def get_quarantine_states(week_data):
+    quar_states = []
+    
+    for state in week_data:
+        daily_avg = calculate_daily_avg(state)
+        pct_avg = calculate_pct_avg(state)
+        
+        if daily_avg > 10.0 or pct_avg > 10.0:
+            quar_states.append(state[0])
+    
+    quar_states.sort()
+    return quar_states
+
+week_num = int(input("Enter week number: "))
+
+week_data = hw4_util.part2_get_week(week_num)
+
+if not week_data:
+    print("Data not available for this week")
+else:
+    while True:
+        keyword = input("Enter keyword (daily/pct/quar/high): ").lower()
+        
+        if keyword == "daily":
+            state_abbr = input("Enter state abbreviation: ").upper()
+            
+            state_found = False
+            for state in week_data:
+                if state[0] == state_abbr:
+                    avg = calculate_daily_avg(state)
+                    print("Average daily positive cases per 100,000: {:.1f}".format(avg))
+                    state_found = True
+                    break
+            
+            if not state_found:
+                print("State not found")
+        
+        elif keyword == "pct":
+            state_abbr = input("Enter state abbreviation: ").upper()
+            
+            state_found = False
+            for state in week_data:
+                if state[0] == state_abbr:
+                    pct = calculate_pct_avg(state)
+                    print("Average daily percentage positive: {:.1f}%".format(pct))
+                    state_found = True
+                    break
+            
+            if not state_found:
+                print("State not found")
+        
+        elif keyword == "quar":
+            quar_states = get_quarantine_states(week_data)
+            hw4_util.print_abbreviations(quar_states)
+        
+        elif keyword == "high":
+            max_state, max_avg = find_highest_state(week_data)
+            print("State with highest average: {}".format(max_state))
+            print("Average: {:.1f}".format(max_avg))
+        
+        else:
+            print("Invalid keyword")

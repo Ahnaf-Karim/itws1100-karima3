@@ -1,0 +1,1 @@
+In this lab we were assigned with creating a website with a homepage, folders containing labs and other assigenements, and the option to click on the lab section and view all of the labs with a synopsis of what was assigned for each lab. 
