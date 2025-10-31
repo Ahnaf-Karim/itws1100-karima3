@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Ahnaf Karim - Labs and other Classwork</title>
+ <style>
+   body {
+     font-family: Arial, sans-serif;
+     background-color: #000000;
+     margin: 0;
+     padding: 0;
+   }
+
+   /* Navigation bar styles */
+   .navbar {
+     background-color: #008080;
+     padding: 15px 20px;
+     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+   }
+
+   .navbar h1 {
+     color: white;
+     margin: 0;
+     font-size: 1.5em;
+     display: inline-block;
+   }
+
+   /* Dropdown container */
+   .dropdown {
+     float: right;
+     position: relative;
+     display: inline-block;
+   }
+
+   /* Dropdown button */
+   .dropdown-btn {
+     background-color: white;
+     color: #008080;
+     padding: 10px 20px;
+     font-size: 16px;
+     border: none;
+     cursor: pointer;
+     border-radius: 4px;
+     font-weight: bold;
+   }
+
+   .dropdown-btn:hover,
+   .dropdown-btn:focus {
+     background-color: #f0f0f0;
+     outline: none;
+   }
+
+   /* Dropdown content (hidden by default) */
+   .dropdown-content {
+     display: none;
+     position: absolute;
+     right: 0;
+     background-color: #000000;
+     min-width: 500px;
+     max-width: 600px;
+     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+     z-index: 1;
+     border-radius: 4px;
+     margin-top: 5px;
+     max-height: 600px;
+     overflow-y: auto;
+   }
+
+   /* Lab items in the dropdown */
+   .dropdown-item {
+     padding: 15px;
+     border-bottom: 1px solid #333;
+   }
+
+   .dropdown-item:last-child {
+     border-bottom: none;
+   }
+
+   .dropdown-item:hover {
+     background-color: #1a1a1a;
+   }
+
+   .lab-title {
+     color: #008080;
+     font-weight: bold;
+     font-size: 1.1em;
+     margin-bottom: 8px;
+   }
+
+   .lab-description {
+     color: #ffffff;
+     margin-bottom: 10px;
+     line-height: 1.5;
+   }
+
+   .lab-links a {
+     color: #008080;
+     text-decoration: none;
+     margin-right: 15px;
+     display: inline-block;
+     margin-bottom: 5px;
+     font-size: 0.95em;
+   }
+
+   .lab-links a:hover {
+     text-decoration: underline;
+   }
+
+   /* Show the dropdown menu when active */
+   .dropdown.active .dropdown-content {
+     display: block;
+   }
+
+   .dropdown.active .dropdown-btn {
+     background-color: #f0f0f0;
+   }
+
+   .resume-container {
+     background-color: #1a1a1a;
+     max-width: 700px;
+     margin: 30px auto;
+     padding: 30px;
+     border-radius: 8px;
+     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+   }
+
+   h2 {
+     color: #008080;
+     border-bottom: 1px solid #333;
+     padding-bottom: 5px;
+     margin-top: 30px;
+   }
+
+   .contact-info {
+     color: #ffffff;
+     font-size: 1em;
+     margin-bottom: 20px;
+   }
+
+   .welcome-text {
+     color: #ffffff;
+     line-height: 1.6;
+   }
+ </style>
+</head>
+<body>
+ <!-- Navigation bar with dropdown -->
+ <div class="navbar">
+   <h1>Ahnaf Karim - Labs and Classwork</h1>
+   <div class="dropdown" id="labDropdown">
+     <button class="dropdown-btn" onclick="toggleDropdown()">Labs ▼</button>
+     <div class="dropdown-content">
+       
+       <!-- Lab 1 -->
+       <div class="dropdown-item">
+         <div class="lab-title">Lab 1 - Setup</div>
+         <div class="lab-description">
+           Lab 1 was an introductory lab in which we installed and began running Microsoft Azure, Github, and our Terminal.
+         </div>
+         <div class="lab-links">
+           <a href="Lab 01/AzureStatusPage.png" target="_blank">Azure Status Page</a>
+           <a href="Lab 01/CheckPHPPage.png" target="_blank">Check PHP Page</a>
+           <a href="Lab 01/Github.png" target="_blank">Github Page</a>
+           <a href="Lab 01/HelloWorld.png" target="_blank">Hello World Page</a>
+         </div>
+       </div>
+
+       <!-- Lab 2 -->
+       <div class="dropdown-item">
+         <div class="lab-title">Lab 2 - Resume</div>
+         <div class="lab-description">
+           For Lab 2 we were tasked with looking at sample resume and then making our own. The purpose of this was for us to familiarize ourselves with the process of building a website.
+         </div>
+         <div class="lab-links">
+           <a href="Lab 02/Lab02-ActualResume2025.html" target="_blank">My Resume Site for Lab 02</a>
+         </div>
+       </div>
+
+       <!-- Lab 3 -->
+       <div class="dropdown-item">
+         <div class="lab-title">Lab 3 - Website</div>
+         <div class="lab-description">
+           In this lab we were assigned with creating a website with a homepage, folders containing labs and other assignments, and the option to click on the lab section and view all of the labs with a synopsis of what was assigned for each lab.
+         </div>
+       </div>
+
+       <!-- Lab 4 -->
+       <div class="dropdown-item">
+         <div class="lab-title">Lab 4 - RSS Feed</div>
+         <div class="lab-description">
+           The purpose of Lab 04 was to create an RSS feed containing links to all of our Labs.
+         </div>
+       </div>
+
+     </div>
+   </div>
+ </div>
+
+ <!-- Main container for the content -->
+ <div class="resume-container">
+   <!-- Contact info -->
+   <div class="contact-info">
+     Email: karima3@rpi.edu | Phone: (929)-603-4201
+   </div>
+
+   <!-- Welcome section -->
+   <h2>Welcome</h2>
+   <p class="welcome-text">
+     This website contains links to all labs completed in addition to other classwork assignments. 
+     Use the "Labs" dropdown menu at the top of the page to view details about each lab and access related materials.
+   </p>
+ </div>
+
+ <script>
+   function toggleDropdown() {
+     var dropdown = document.getElementById("labDropdown");
+     dropdown.classList.toggle("active");
+   }
+
+   // Close dropdown when clicking outside
+   window.onclick = function(event) {
+     if (!event.target.matches('.dropdown-btn')) {
+       var dropdown = document.getElementById("labDropdown");
+       if (dropdown.classList.contains('active')) {
+         dropdown.classList.remove('active');
+       }
+     }
+   }
+ </script>
+</body>
+</html>
+
+
