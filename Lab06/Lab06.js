@@ -37,169 +37,85 @@
 // jQuery Document Ready - This runs when the page is fully loaded
 $(document).ready(function () {
 
-    
+    // Keep a counter for dynamically added list items (start after existing items)
+    let listItemCounter = $('#labList li').length || 5;
+
     // ============================================
     // PROBLEM 1: PERSONAL INFORMATION & STYLING
     // ============================================
-    // 🎯 GOAL: When someone clicks the h1 heading, replace "Your Name" 
-    //          with your actual name and apply custom styling'
-    });
-      $('#nameHeading').click(function() {
-        $('.myName').text('Ahnaf Karim');
-            .css('font-variant', 'small-caps')
-            .css('color;, ;red')
-            .css('font-size', '200%');
-
-
-      });
-
-    // 
-    // 📝 REQUIREMENTS:
-    //    - Change "Your Name" to your actual name
-    //    - Apply small caps (font-variant: small-caps)
-    //    - Change color (not blue or black)
-    //    - Set font size to 200% (font-size: 200%)
-    //
-    // 💡 HINTS:
-    //    - Use $('#nameHeading') or $('#nameHeading .myName') to select
-    //    - Use .text() to change text content
-    //    - Use .css() to apply styles: .css('property', 'value')
-    //    - You can chain methods: $(selector).text('new text').css('color', 'red')
-    //
-    // 🏁 STARTER TEMPLATE:
+    // When the heading is clicked replace the name and apply styles
     $('#nameHeading').click(function() {
-        // TODO: Your code here
-        // Use .text() to change the text content
-        // Use .css() to apply styling
-        
-        logToConsole('Name heading clicked - implement your solution!', 'info');
-    
+        // Target the inner element with class .myName
+        $('#nameHeading .myName')
+            .text('Ahnaf Karim')
+            .css({
+                'font-variant': 'small-caps',
+                'color': '#ff6b6b',
+                'font-size': '200%'
+            });
 
+        logToConsole('Name heading clicked - name and styling applied!', 'success');
+    });
 
-    
     // ============================================
     // PROBLEM 2: TEXT ANIMATION
     // ============================================
-    // 🎯 GOAL: Create smooth show/hide animations for the lorem ipsum text
-    //
-    // 📝 REQUIREMENTS:
-    //    - "Hide Text" button: Make paragraphs vanish over 2000ms (2 seconds)
-    //    - "Show Text" button: Make paragraphs appear over 3300ms (3.3 seconds)  
-    //    - "Toggle Text" button: Switch between show/hide
-    //
-    // 💡 HINTS:
-    //    - Target the #textContent div (contains the paragraphs)
-    //    - Use .hide(duration), .show(duration), .toggle(duration)
-    //    - Duration is in milliseconds: 2000ms = 2 seconds
-    //    - preventDefault() stops the default link behavior
-    //
-    // 🏁 STARTER TEMPLATES:
-    
     $('#hideText').click(function(e) {
-        e.preventDefault(); // Prevents the link from jumping to top
-        // TODO: Hide the #textContent over 2000ms
-        $('#textContent').hide(2000)
-
-        logToConsole('Hide text clicked - implement fade out animation!', 'info');
+        e.preventDefault();
+        // Hide the #textContent over 2000ms
+        $('#textContent').hide(2000);
+        logToConsole('Hide text clicked - hiding text over 2000ms', 'info');
     });
-    
+
     $('#showText').click(function(e) {
         e.preventDefault();
-        // TODO: Show the #textContent over 3300ms
-        $('#showText').show(3300)
-
-        logToConsole('Show text clicked - implement fade in animation!', 'info');
+        // Show the #textContent over 3300ms
+        $('#textContent').show(3300);
+        logToConsole('Show text clicked - showing text over 3300ms', 'info');
     });
-    
+
     $('#toggleText').click(function(e) {
         e.preventDefault();
-        // TODO: Toggle the #textContent visibility
-        $('#toggleText').toggle(2000)
-        
-        logToConsole('Toggle text clicked - implement toggle functionality!', 'info');
+        // Toggle the #textContent visibility over 2000ms
+        $('#textContent').toggle(2000);
+        logToConsole('Toggle text clicked - toggling text visibility', 'info');
     });
 
-
-    
     // ============================================
     // PROBLEM 3: INTERACTIVE LIST ITEMS
     // ============================================
-    // 🎯 GOAL: Make list items change color when clicked
-    //
-    // 📝 REQUIREMENTS:
-    //    - Click normal list item → turns red (add .red class)
-    //    - Click red list item → back to normal (remove .red class)
-    //    - Use the existing .red CSS class (already defined in CSS)
-    //
-    // 💡 HINTS:
-    //    - Use .addClass('red') to add the red class
-    //    - Use .removeClass('red') to remove the red class  
-    //    - Use .toggleClass('red') to automatically add/remove
-    //    - Target: '#labList li' (all list items in the labList)
-    //
-    // 🏁 STARTER TEMPLATE:
+    // Direct event handler for the initially existing list items.
+    // (This demonstrates the non-delegated approach. Problem 5 will
+    // replace this with a delegated handler so dynamically added items
+    // will also work.)
     $('#labList li').click(function() {
-        // TODO: Toggle the 'red' class on the clicked list item
-        $(this).toggleClass('red')
-
+        $(this).toggleClass('red');
         const itemText = $(this).text();
-        logToConsole(`List item clicked: "${itemText}" - implement color toggle!`, 'info');
+        logToConsole(`List item clicked (direct): "${itemText}"`, 'info');
     });
 
-
-    
     // ============================================
     // PROBLEM 4: DYNAMIC CONTENT CREATION
     // ============================================
-    // 🎯 GOAL: Add new list items dynamically when button is clicked
-    //
-    // 📝 REQUIREMENTS:
-    //    - When "Add List Item" is clicked, add a new item to #labList
-    //    - Each new item should have a unique number
-    //    - Include encouraging text like "New item X - Click me!"
-    //
-    // 💡 HINTS:
-    //    - Use .append() to add content to the end: $('#labList').append('<li>content</li>')
-    //    - Use the listItemCounter variable to track item numbers
-    //    - Increment listItemCounter after each addition: listItemCounter++
-    //
-    // 🏁 STARTER TEMPLATE:
     $('#AddListItem').click(function() {
-        // TODO: Create and append a new list item
-        // Remember to increment the counter and use .append()
+        // Increment counter and append a new list item
         listItemCounter++;
-
-        logToConsole('Add list item clicked - implement dynamic list item creation!', 'info');
+        const newText = `New item ${listItemCounter} - Click me!`;
+        $('#labList').append(`<li>${newText}</li>`);
+        logToConsole(`Added list item: ${newText}`, 'success');
     });
 
-
-    
     // ============================================
     // PROBLEM 5: EVENT DELEGATION CHALLENGE  
     // ============================================
-    // 🎯 GOAL: Make the red-toggle feature work on dynamically added list items
-    //
-    // 📝 THE CHALLENGE: After adding new list items in Problem 4, try clicking them.
-    //                   Do they turn red like the original items? Why or why not?
-    //
-    // 📝 REQUIREMENTS:
-    //    - Ensure ALL list items (original AND new) can toggle red color
-    //    - Research and implement event delegation using $(document).on()
-    //    - Replace the Problem 3 event handler with a delegated version
-    //
-    // 💡 HINTS:
-    //    - Events attached to specific elements only work on elements that existed when attached
-    //    - New elements added later don't automatically inherit event handlers
-    //    - Event delegation attaches the handler to a parent that always exists
-    //    - Syntax: $(document).on('click', '#labList li', function() { ... })
-    //
-    // 🏁 SOLUTION APPROACH:
-    //    1. Comment out or remove the Problem 3 event handler
-    //    2. Replace it with a delegated event handler using $(document).on()
-    //    3. Test by adding new items and clicking them
-    
-    // TODO: Replace the Problem 3 handler with a delegated version
-    // Research $(document).on() syntax for event delegation
-
+    // Replace the direct handler from Problem 3 with a delegated one
+    // so dynamically added items (via Problem 4) will also respond.
+    // First, remove the direct handler attached above, then add a delegated handler.
+    $('#labList li').off('click'); // remove direct handler
+    $(document).on('click', '#labList li', function() {
+        $(this).toggleClass('red');
+        const itemText = $(this).text();
+        logToConsole(`List item toggled (delegated): "${itemText}"`, 'success');
+    });
 
 }); // End of $(document).ready()
