@@ -1,0 +1,34 @@
+{
+   "menuItem": [
+      {
+         "a": "Lab 2",
+         "b": "Resume",
+         "c": "Lab02/Lab02-ActualResume2025.html",
+         "d": "Lab02/resume.jpg"
+      },
+      {
+         "a": "Lab 3",
+         "b": "Website",
+         "c": "Lab03/Lab-03b-Website2025.html",
+         "d": "Lab03/website.jpg"
+      },
+      {
+         "a": "Lab 4",
+         "b": "RSS Atom",
+         "c": "Lab04/AhnafKarim.xml",
+         "d": "Lab04/rss.jpg"
+      },
+      {
+         "a": "Lab 5",
+         "b": "CSS Page",
+         "c": "Lab05/Lab05.html",
+         "d": "Lab05/css.jpg"
+      },
+            {
+         "a": "Lab 6",
+         "b": "JavaScript",
+         "c": "Lab06/Lab06.html",
+         "d": "Lab06/javascript.jpg"
+      }
+   ]
+}
