@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* match Lab03 dark background */
+    margin: 0;
+    padding: 20px;
+}
+
+h1{
+    text-align: center;
+    color: #008080; /* teal */
+}
+
+#menu {
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.project{
+    background-color: #1a1a1a; /* match resume container */
+    padding: 20px;
+    margin: 20px 0;
+    border: 2px solid #008080; /* teal border */
+    border-radius: 10px;
+    transition: background-color 0.2s ease, transform 0.12s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.project h3{
+    color: #008080;
+    margin: 0 0 8px 0;
+}
+
+.proj-img{
+    width: 200px;
+    height: 150px;
+    display: block;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.project a{
+    color: #008080;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project a:hover{
+    text-decoration: underline;
+}
+
+.project:hover{
+    background-color: #262626;
+    transform: translateY(-3px);
+}
+
+/* small adjustments to match Lab03 container */
+.page-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
