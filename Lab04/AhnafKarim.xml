@@ -1,20 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
-
 <channel>
-  <title>Trump and Musk reunite at Charlie Kirk memorial as Erika reveals she forgives shooter who killed husband: Live</title>
-  <link>https://www.the-independent.com/news/world/americas/us-politics/charlie-kirk-funeral-memorial-trump-speech-live-updates-b2830997.html</link>
-  <description>Article About the Kirk Memorial</description>
-  <item>
-    <title>RSS Tutorial</title>
-    <link>https://www.w3schools.com/xml/xml_rss.asp</link>
-    <description>New RSS tutorial on W3Schools</description>
-  </item>
-  <item>
-    <title>XML Tutorial</title>
-    <link>https://www.w3schools.com/xml</link>
-    <description>New XML tutorial on W3Schools</description>
-  </item>
-</channel>
+	<title>Ahnaf Karim - Labs and other Classwork</title>
+	  <description>This website contains links to all labs completed in addition to other classwork assignments.</description>
+	      <link>http://www.example.com/</link>
+	  <lastBuildDate>Mon, 03 Nov 2025 00:00:00 +0000</lastBuildDate>
+	<pubDate>Mon, 03 Nov 2025 00:00:00 +0000</pubDate>
+ 
+	<item>
+		<title>Lab 1 - Setup</title>
+		  <description>Lab 1 was an introductory lab in which we installed and began running Microsoft Azure, Github, and our Terminal.</description>
+		    <link>karima3rpi.eastus.cloudapp.azure.com/iit/Lab01</link>
+		  <guid>3a6504e6-ad47-43c8-add4-82a2f05c04d5</guid>
+		<pubDate>Mon, 03 Nov 2025 00:00:00 +0000</pubDate>
+	</item>
 
+	<item>
+		<title>Lab 2 - Resume</title>
+		  <description>For Lab 2 we were tasked with looking at sample resume and then making our own. The purpose of this was for us to familiarize ourselves with the process of building a website.</description>
+		    <link>karima3rpi.eastus.cloudapp.azure.com/iit/Lab02</link>
+		  <guid>6d625622-ffac-497c-84ae-cf0d79cc0c1a</guid>
+		<pubDate>Mon, 03 Nov 2025 00:00:00 +0000</pubDate>
+	</item>
+
+	<item>
+		<title>Lab 3 - Website</title>
+		  <description>In this lab we were assigned with creating a website with a homepage, folders containing labs and other assignments, and the option to click on the lab section and view all of the labs with a synopsis of what was assigned for each lab.</description>
+		    <link>karima3rpi.eastus.cloudapp.azure.com/iit/Lab03</link>
+		  <guid>f2324381-be28-41cb-be3f-5284fe1588fc</guid>
+		<pubDate>Mon, 03 Nov 2025 00:00:00 +0000</pubDate>
+	</item>
+
+	<item>
+		<title>Lab 4 - RSS Feed</title>
+		  <description>The purpose of Lab 04 was to create an RSS feed containing links to all of our Labs.</description>
+		    <link>karima3rpi.eastus.cloudapp.azure.com/iit/Lab04</link>
+		  <guid>b448f91c-77f9-438d-871c-fa1445616d52</guid>
+		<pubDate>Mon, 03 Nov 2025 00:00:00 +0000</pubDate>
+	</item>
+ 
+</channel>
 </rss>
