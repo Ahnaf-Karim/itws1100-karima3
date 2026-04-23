@@ -1,0 +1,7 @@
+CREATE TABLE quiz3_comments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    visitor_name VARCHAR(80) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    comment_text TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
